@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  font-family: Arial;
+ 
+  background-color: #cccccc;
+  
+}
+
+
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+  color:cyan;
+  text-align: center;
+  font-style: italic;
+}
+
+.row {
+  margin: 10px -16px;
+  background-image:url("C:\Users\vipendra singh\Summer Project\task0\pexels-pixabay-69389.jpg");
+  background-repeat: no-repeat, repeat;
+
+}
+
+
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; 
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.content {
+  background-color: rgb(156, 141, 141);
+  padding: 10px;
+}
+
+
+.show {
+  display: block;
+}
+
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #21a8b9;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(0, 49, 114);
+}
+
+.btn.active {
+  background-color: rgb(141, 128, 54);
+  color: white;
+}
+
+</style>
+</head>
+<body background="C:\Users\vipendra singh\Summer Project\task0\pexels-pixabay-69389.jpg">
+
+
+<div class="main">
+
+<h1>My PORTFOLIO</h1>
+<hr>
+
+<h2 style="color: rgb(43, 190, 166) ;"> Vipendra Singh</h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Categories</button>
+  <button class="btn" onclick="filterSelection('nature')"> My City </button>
+  <button class="btn" onclick="filterSelection('cars')"> My Imaginary Cars</button>
+  <button class="btn" onclick="filterSelection('trips')"> My Trips</button>
+</div>
+
+
+<div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-sagar-soneji-3581369.jpg" alt="Heritage" style="width:100%">
+      <h4>Hawa Mahal</h4>
+      <p></p>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-anton-polyakov-5725226.jpg" alt="Dessert" style="width:100%">
+      <h4>Jal Mahal</h4>
+      <p></p>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-zuhair-ahmad-5552335.jpg" alt="River" style="width:100%">
+      <h4>Ajmeri Gate</h4>
+      <p></p>
+    </div>
+  </div>
+  
+  <div class="column cars">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-pixabay-315952.jpg" alt="Car" style="width:90%">
+      <h4>Vintage</h4>
+      <p>$500000.00</p>
+    </div>
+  </div>
+  <div class="column cars">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-mike-241316.jpg" alt="Car" style="width:100%">
+      <h4>Fast</h4>
+      <p>$600000.00</p>
+    </div>
+  </div>
+  <div class="column cars">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-neil-kelly-712618.jpg" alt="Car" style="width:100%">
+      <h4>Classic</h4>
+      <p>$400000.00</p>
+    </div>
+  </div>
+
+  <div class="column cars">
+    <div class="content">
+      <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-murat-soyluoglu-1209774.jpg" alt="Car" style="width:100%">
+      <h4>Retro</h4>
+      <p>$200000.00</p>
+    </div>
+  </div>
+  <div class="column trips">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-jimmi-kamballur-6194591.jpg" alt="Trip" style="width:100%">
+      <h4>Kerala</h4>
+      <p> Kerala is famous especially for its ecotourism initiatives and beautiful backwaters.</p>
+    </div>
+  </div>
+  <div class="column trips">
+    <div class="content">
+    <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-ankit-gupta-2491830.jpg" alt="Trip" style="width:100%">
+      <h4>Jodhpur</h4>
+      <p>Jodhpur, the second largest city in Rajasthan is popularly known as the Blue City</p>
+    </div>
+  </div>
+  <div class="column trips">
+    <div class="content">
+      <img src="C:\Users\vipendra singh\Summer Project\task0\pexels-shivkumar-sd-7242464 (1).jpg" alt="Trip" style="width:90%">
+      <h4>Goa</h4>
+      <p>Goa is a state in western India with coastlines stretching along the Arabian Sea. Goa is also known for its beaches</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+filterSelection("all")
+function filterSelection(ocm) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (ocm == "all") ocm = "";
+  for (i = 0; i < x.length; i++) {
+    remv_class(x[i], "show");
+    if (x[i].className.indexOf(ocm) > -1) ad_Class(x[i], "show");
+  }
+}
+
+function ad_Class(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function remv_class(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+
+
+
+
+</body>
+</html>
